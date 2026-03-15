@@ -2,34 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World from Google Sheets</title>
+  <title>Hello World from GitHub JSON</title>
 </head>
 <body>
-  <h1 id="hello-text">Loading message...</h1>
+  <h1 id="hello-text">Loading...</h1>
   <p id="hello-time"></p>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwQ88CVN_qpnvGSwNFyxUdc4NoG5wI55OEiPb9KmcUgP67dZLVW9Ax1Ssgla74LeHUb/exec';
+    const jsonURL = 'https://raw.githubusercontent.com/wesutdgames/hello-world/main/data.json';
 
     async function loadMessage() {
       try {
-        const response = await fetch(scriptURL);
-        if (!response.ok) throw new Error('Network error');
+        const response = await fetch(jsonURL);
+        if (!response.ok) throw new Error('Failed to fetch JSON');
         const data = await response.json();
 
         document.getElementById('hello-text').innerText = data.message;
         document.getElementById('hello-time').innerText = 'Updated at: ' + new Date(data.time).toLocaleString();
       } catch (err) {
         console.error(err);
-        document.getElementById('hello-text').innerText = 'Error loading message';
+        document.getElementById('hello-text').innerText = 'Error loading JSON';
       }
     }
 
-    // Load immediately
     loadMessage();
-
-    // Refresh every 10 seconds
-    setInterval(loadMessage, 10000);
+    setInterval(loadMessage, 10000); // Optional: refresh every 10 sec
   </script>
 </body>
 </html>
