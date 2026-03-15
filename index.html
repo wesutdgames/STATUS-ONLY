@@ -237,8 +237,8 @@ async function updateNS(lang) {
     const response = await fetch(NS_JSON + "?nocache=" + Date.now());
     const row = await response.json();
 
-    let status = row?.Status?.toLowerCase();
-    let message = lang === "am" ? row?.Amharic : lang === "en" ? row?.English : row?.Oromo;
+   let status = row?.status?.toLowerCase();
+   let message = lang === "am" ? row?.am : lang === "en" ? row?.en : row?.or;
 
     if (!status || !message) {
       const hour = new Date().getHours();
@@ -300,8 +300,8 @@ async function updateEW(lang) {
     const response = await fetch(EW_JSON + "?nocache=" + Date.now());
     const row = await response.json();
 
-    let status = row?.Status?.toLowerCase();
-    let message = lang === "am" ? row?.Amharic : lang === "en" ? row?.English : row?.Oromo;
+    let status = row?.status?.toLowerCase();
+    let message = lang === "am" ? row?.am : lang === "en" ? row?.en : row?.or;
 
     if (!status || !message) {
       const hour = new Date().getHours();
