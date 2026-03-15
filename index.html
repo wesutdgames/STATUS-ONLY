@@ -1,9 +1,9 @@
-<h2>Test page biruk</h2>
+<h2>Test </h2>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Hello JSON</title>
+<meta charset="UTF-8">
+<title>JSON Reader</title>
 </head>
 
 <body>
@@ -14,9 +14,12 @@
 <script>
 
 async function loadJSON() {
+
   try {
 
-    const response = await fetch("./data.json");
+    const url = "data.json?nocache=" + new Date().getTime();
+
+    const response = await fetch(url);
     const data = await response.json();
 
     document.getElementById("message").textContent = data.message;
@@ -24,13 +27,15 @@ async function loadJSON() {
 
   } catch (error) {
 
-    console.log(error);
     document.getElementById("message").textContent = "Error loading JSON";
 
   }
+
 }
 
 loadJSON();
+
+setInterval(loadJSON, 5000); // refresh every 5 seconds
 
 </script>
 
