@@ -1,7 +1,4 @@
 {
-  "status": "stopped",
-  "am": "???? ???! ???? ???? ?????? ?????",
-  "en": "Happy Holiday! NS line not operational",
-  "or": "Baga ayyaana gahe! Karaan NS hin hojjetu",
-  "last_updated": "2026-03-16T21:01:16.827Z"
+  "message": "ሰላም ልዑል! ይህ አማርኛ መልእክት ነው።",
+  "timestamp": "2026-03-16T21:04:13.588Z"
 }
