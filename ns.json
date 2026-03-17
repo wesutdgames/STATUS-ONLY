@@ -1,7 +1,13 @@
 {
-  "status": "stopped",
-  "am_base64": "",
-  "en": "",
-  "or": "",
-  "last_updated": "2026-03-17T12:21:11.169Z"
+  "minute": 46,
+  "week-of-year": 12,
+  "day-of-week": 2,
+  "day-of-month": 17,
+  "timezone": "UTC",
+  "year": 2026,
+  "second": 1,
+  "triggerUid": "7855866447799517184",
+  "month": 3,
+  "authMode": "FULL",
+  "hour": 12
 }
