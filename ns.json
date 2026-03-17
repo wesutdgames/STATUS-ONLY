@@ -1,7 +1,13 @@
 {
-  "status": "operating",
-  "am": "",
-  "en": "",
-  "or": "",
-  "last_updated": "2026-03-17T12:48:53.372Z"
+  "day-of-week": 2,
+  "triggerUid": "7855866447799517184",
+  "day-of-month": 17,
+  "second": 1,
+  "minute": 49,
+  "timezone": "UTC",
+  "authMode": "FULL",
+  "year": 2026,
+  "hour": 12,
+  "month": 3,
+  "week-of-year": 12
 }
