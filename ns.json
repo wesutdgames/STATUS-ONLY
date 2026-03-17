@@ -1,13 +1,7 @@
 {
-  "authMode": "FULL",
-  "week-of-year": 12,
-  "year": 2026,
-  "month": 3,
-  "day-of-month": 17,
-  "timezone": "UTC",
-  "day-of-week": 2,
-  "minute": 7,
-  "hour": 13,
-  "second": 1,
-  "triggerUid": "7855866447799517184"
+  "status": "stopped",
+  "am": "???? ??? ????? ????? ?? ???? ????",
+  "en": "From Kaliti to Meshalekiya, working in short route",
+  "or": "Kaliti irraa gara Meshalekiya, saffisa gabaabaa hojjachaa jira",
+  "last_updated": "2026-03-17T13:07:51.528Z"
 }
