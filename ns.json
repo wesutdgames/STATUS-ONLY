@@ -1,7 +1,13 @@
 {
-  "status": "stopped",
-  "am": "?????? ??? ?/???? ????? ?? ???? ????",
-  "en": "From Stadium to Menelik II Square, working in short route",
-  "or": "Stadium irraa gara Minilik II, saffisa gabaabaa hojjachaa jira",
-  "last_updated": "2026-03-17T12:52:57.633Z"
+  "day-of-month": 17,
+  "year": 2026,
+  "week-of-year": 12,
+  "hour": 12,
+  "month": 3,
+  "day-of-week": 2,
+  "triggerUid": "7855866447799517184",
+  "second": 1,
+  "minute": 53,
+  "timezone": "UTC",
+  "authMode": "FULL"
 }
