@@ -1,7 +1,13 @@
 {
-  "status": "stopped",
-  "am": "???? ???? ?? ??? ???? ?????? ?????",
-  "en": "NS line Train service is fully stopped",
-  "or": "Karaan NS guutummaatti dhaabbateera",
-  "last_updated": "2026-03-17T00:52:28.076Z"
+  "month": 3,
+  "second": 1,
+  "authMode": "FULL",
+  "week-of-year": 12,
+  "triggerUid": "7855866447799517184",
+  "year": 2026,
+  "hour": 0,
+  "timezone": "UTC",
+  "minute": 53,
+  "day-of-month": 17,
+  "day-of-week": 2
 }
