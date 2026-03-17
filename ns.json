@@ -1,7 +1,13 @@
 {
-  "status": "stopped",
-  "am": "???? ??? ???? ????? ?? ???? ????",
-  "en": "From Kaliti to Daramar, working in short route",
-  "or": "Kaliti irraa gara Daramar, saffisa gabaabaa hojjachaa jira",
-  "last_updated": "2026-03-17T05:00:03.084Z"
+  "second": 1,
+  "week-of-year": 12,
+  "minute": 1,
+  "hour": 5,
+  "year": 2026,
+  "timezone": "UTC",
+  "day-of-month": 17,
+  "triggerUid": "7855866447799517184",
+  "month": 3,
+  "authMode": "FULL",
+  "day-of-week": 2
 }
