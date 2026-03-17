@@ -1,13 +1,13 @@
 {
-  "day-of-month": 17,
-  "year": 2026,
-  "week-of-year": 12,
-  "hour": 12,
-  "month": 3,
   "day-of-week": 2,
+  "month": 3,
+  "minute": 54,
+  "week-of-year": 12,
   "triggerUid": "7855866447799517184",
-  "second": 1,
-  "minute": 53,
+  "day-of-month": 17,
   "timezone": "UTC",
-  "authMode": "FULL"
+  "hour": 12,
+  "authMode": "FULL",
+  "second": 1,
+  "year": 2026
 }
