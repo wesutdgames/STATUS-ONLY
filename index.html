@@ -170,17 +170,29 @@ body {
 <body>
 
 <div id="welcomeBanner">
-  እንኳን ወደ አዲስ አበባ ቀላል ባቡር ትራንስፖርት በደህና መጡ
+  <span>
+    እንኳን ወደ አዲስ አበባ ቀላል ባቡር ትራንስፖርት በደህና መጡ
+  </span>
 </div>
 
+<!-- NS -->
 <div class="status-box operating" id="trainNS">
-  <div class="status-label">የቃሊቲ - ፒያሳ</div>
-  <div class="status-message" id="statusMsgNS">⏳ Loading...</div>
+  <div class="status-label">
+    የቃሊቲ - ፒያሳ መስመር
+  </div>
+  <div class="status-message" id="statusMsgNS">
+    የNS መስመር ሁኔታ በመጫን ላይ...
+  </div>
 </div>
 
+<!-- EW -->
 <div class="status-box operating" id="trainEW">
-  <div class="status-label">የአያት - ጦርሐይሎች</div>
-  <div class="status-message" id="statusMsgEW">⏳ Loading...</div>
+  <div class="status-label">
+    የአያት - ጦርሐይሎች መስመር
+  </div>
+  <div class="status-message" id="statusMsgEW">
+    የEW መስመር ሁኔታ በመጫን ላይ...
+  </div>
 </div>
 
 <script>
@@ -203,14 +215,16 @@ function decodeBase64UTF8(base64) {
   }
 }
 
-/* ===============================
-   NS UPDATE
-=============================== */
+/* =============================
+   NS LINE (FIXED ONLY FETCH)
+============================= */
 async function updateNS() {
+
   const box = document.getElementById("trainNS");
   const msgEl = document.getElementById("statusMsgNS");
 
   try {
+
     const res = await fetch(NS_JSON + "?t=" + Date.now());
     const row = await res.json();
 
@@ -218,47 +232,58 @@ async function updateNS() {
     let message = decodeBase64UTF8(row?.am || "");
 
     if (!status || !message) {
+
       const hour = new Date().getHours();
 
       if (hour >= 6 && hour < 22) {
         status = "operating";
-        message = "🚆 ሙሉ አገልግሎት እየሰጠ ነው";
-      } else if (hour >= 22) {
+        message = "🚆 የቃሊቲ - ፒያሳ መስመር ባቡር ሙሉ አገልግሎት እየሰጠ ይገኛል";
+      }
+
+      else if (hour >= 22 && hour < 24) {
         status = "finished";
-        message = "🏁 አገልግሎት ተጠናቋል";
-      } else if (hour < 5) {
+        message = "🏁 መደበኛ አገልግሎት ተጠናቋል!";
+      }
+
+      else if (hour >= 0 && hour < 5) {
         status = "construction";
         message = "🚧 የጥገና ስራ እየተካሄደ ነው";
-      } else {
+      }
+
+      else {
         status = "returning";
-        message = "🚆 ለመጀመር በዝግጅት ላይ";
+        message = "🚆 ለመጀመር በዝግጅት ላይ ነው";
       }
     }
 
-    box.className = "status-box " + status;
-    msgEl.textContent = message;
+    const oldDot = box.querySelector(".status-dot");
+    if (oldDot) oldDot.remove();
 
-    box.querySelector(".status-dot")?.remove();
     if (status === "stopped") {
       const dot = document.createElement("span");
       dot.className = "status-dot";
       box.appendChild(dot);
     }
 
+    msgEl.textContent = message;
+    box.className = "status-box " + status;
+
   } catch {
-    msgEl.textContent = "❌ ኢንተርኔት የለም";
+    msgEl.textContent = "❌📶 እባክዎ Wi-Fi ያብሩ";
     box.className = "status-box stopped";
   }
 }
 
-/* ===============================
-   EW UPDATE
-=============================== */
+/* =============================
+   EW LINE (FIXED ONLY FETCH)
+============================= */
 async function updateEW() {
+
   const box = document.getElementById("trainEW");
   const msgEl = document.getElementById("statusMsgEW");
 
   try {
+
     const res = await fetch(EW_JSON + "?t=" + Date.now());
     const row = await res.json();
 
@@ -266,50 +291,57 @@ async function updateEW() {
     let message = decodeBase64UTF8(row?.am || "");
 
     if (!status || !message) {
+
       const hour = new Date().getHours();
 
       if (hour >= 6 && hour < 22) {
         status = "operating";
-        message = "🚆 ሙሉ አገልግሎት እየሰጠ ነው";
-      } else if (hour >= 22) {
+        message = "🚆 በአያት መስመር ሙሉ አገልግሎት እየሰጠ ነው";
+      }
+
+      else if (hour >= 22 && hour < 24) {
         status = "finished";
-        message = "🏁 አገልግሎት ተጠናቋል";
-      } else if (hour < 5) {
+        message = "🏁 መደበኛ አገልግሎት ተጠናቋል!";
+      }
+
+      else if (hour >= 0 && hour < 5) {
         status = "construction";
         message = "🚧 የጥገና ስራ እየተካሄደ ነው";
-      } else {
+      }
+
+      else {
         status = "returning";
-        message = "🚆 ለመጀመር በዝግጅት ላይ";
+        message = "🚆 ለመጀመር በዝግጅት ላይ ነው";
       }
     }
 
-    box.className = "status-box " + status;
-    msgEl.textContent = message;
+    const oldDot = box.querySelector(".status-dot");
+    if (oldDot) oldDot.remove();
 
-    box.querySelector(".status-dot")?.remove();
     if (status === "stopped") {
       const dot = document.createElement("span");
       dot.className = "status-dot";
       box.appendChild(dot);
     }
 
+    msgEl.textContent = message;
+    box.className = "status-box " + status;
+
   } catch {
-    msgEl.textContent = "❌ ኢንተርኔት የለም";
+    msgEl.textContent = "❌📶 እባክዎ Wi-Fi ያብሩ";
     box.className = "status-box stopped";
   }
 }
 
-/* ===============================
-   LOAD
-=============================== */
-function updateAll() {
+/* LOAD */
+function updateAllLines(){
   updateNS();
   updateEW();
 }
 
-updateAll();
-setInterval(updateAll, 60000);
-</script>
+updateAllLines();
+setInterval(updateAllLines, 60000);
 
+</script>
 </body>
 </html>
